@@ -12,6 +12,18 @@ view, with **Source** on the next tab for the raw YAML.
   <img alt="The OpenAPI Preview tab on the Swagger Petstore spec: version and OAS 3.0 badges, a servers picker with Authorize, and pet endpoints colour-coded by method." src="assets/screenshot-light.png">
 </picture>
 
+## Install
+
+```sh
+orca plugin install Tagliatti/orca-openapi
+```
+
+Pin a version with `Tagliatti/orca-openapi@v0.1.0`. In the app, the same thing through
+Settings → Plugins → Install plugin.
+
+The plugin runs code, so Orca asks for approval first and shows exactly what it would grant: a
+sandboxed editor frame that reads every file it opens, and no capabilities.
+
 ## What it opens
 
 Known file names only, matching GitLab's defaults:
