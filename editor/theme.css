@@ -1,0 +1,238 @@
+/*
+ * Adapts Swagger UI — light by nature — to Orca's theme.
+ *
+ * Everything comes from the `--orca-*` variables, which Orca updates in place when the theme
+ * changes: there is no theme JavaScript here. The method colours (GET blue, POST green, DELETE
+ * red) are left as Swagger UI defines them, which is what GitLab shows.
+ */
+
+html,
+body {
+  margin: 0;
+  background: var(--orca-background);
+  color: var(--orca-foreground);
+}
+
+/* Warning/error strip at the top: empty file, invalid YAML, external $ref. */
+.banner {
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--orca-border);
+  background: var(--orca-muted);
+  color: var(--orca-foreground);
+  font: 12px/1.5 ui-sans-serif, system-ui, sans-serif;
+}
+
+.banner[data-tone='error'] {
+  background: var(--orca-destructive);
+  color: var(--orca-destructive-foreground);
+  border-bottom-color: var(--orca-destructive);
+}
+
+.swagger-ui {
+  color: var(--orca-foreground);
+  background: var(--orca-background);
+}
+
+/* Header: title, version, description. */
+.swagger-ui .info {
+  margin: 24px 0;
+}
+
+.swagger-ui .info .title,
+.swagger-ui .info .title small,
+.swagger-ui .info .title small pre,
+.swagger-ui .info h1,
+.swagger-ui .info h2,
+.swagger-ui .info h3,
+.swagger-ui .info h4,
+.swagger-ui .info h5,
+.swagger-ui .info p,
+.swagger-ui .info li,
+.swagger-ui .info table {
+  color: var(--orca-foreground);
+}
+
+.swagger-ui .info .title small {
+  background: var(--orca-muted);
+  border: 1px solid var(--orca-border);
+}
+
+.swagger-ui .info .base-url,
+.swagger-ui .info .title small.version-stamp {
+  color: var(--orca-muted-foreground);
+  background: var(--orca-muted);
+}
+
+.swagger-ui a,
+.swagger-ui .info a,
+.swagger-ui .info .title small a {
+  color: var(--orca-primary);
+}
+
+/* Servers bar + Authorize button. */
+.swagger-ui .scheme-container {
+  background: var(--orca-background);
+  box-shadow: none;
+  border-bottom: 1px solid var(--orca-border);
+  padding: 16px 0;
+}
+
+.swagger-ui select,
+.swagger-ui .filter .operation-filter-input {
+  background: var(--orca-card);
+  color: var(--orca-foreground);
+  border: 1px solid var(--orca-input);
+  border-radius: var(--orca-radius, 6px);
+}
+
+.swagger-ui .btn {
+  color: var(--orca-foreground);
+  border-color: var(--orca-border);
+  border-radius: var(--orca-radius, 6px);
+}
+
+.swagger-ui .btn.authorize,
+.swagger-ui .btn.authorize svg {
+  color: var(--orca-primary);
+  border-color: var(--orca-primary);
+  fill: var(--orca-primary);
+}
+
+/* Each operation: the frame stays neutral and only the method badge carries colour. */
+.swagger-ui .opblock {
+  background: var(--orca-card);
+  border-color: var(--orca-border);
+  border-radius: var(--orca-radius, 6px);
+  box-shadow: none;
+}
+
+.swagger-ui .opblock .opblock-summary {
+  border-bottom-color: var(--orca-border);
+}
+
+.swagger-ui .opblock .opblock-summary-path,
+.swagger-ui .opblock .opblock-summary-path a,
+.swagger-ui .opblock .opblock-summary-path__deprecated,
+.swagger-ui .opblock .opblock-summary-operation-id {
+  color: var(--orca-foreground);
+}
+
+.swagger-ui .opblock .opblock-summary-description,
+.swagger-ui .opblock-description-wrapper p,
+.swagger-ui .opblock-external-docs-wrapper p,
+.swagger-ui .opblock-title_normal p,
+.swagger-ui .response-col_status,
+.swagger-ui .response-col_description,
+.swagger-ui .parameter__type,
+.swagger-ui .parameter__deprecated,
+.swagger-ui .tab li,
+.swagger-ui .opblock-tag,
+.swagger-ui .opblock-tag small {
+  color: var(--orca-muted-foreground);
+}
+
+.swagger-ui .opblock-tag {
+  border-bottom: 1px solid var(--orca-border);
+}
+
+.swagger-ui .opblock .opblock-body,
+.swagger-ui .opblock .opblock-body pre.microlight,
+.swagger-ui .opblock .opblock-section-header {
+  background: var(--orca-background);
+  color: var(--orca-foreground);
+}
+
+.swagger-ui .opblock .opblock-section-header h4,
+.swagger-ui .opblock .opblock-section-header label {
+  color: var(--orca-foreground);
+}
+
+.swagger-ui .parameter__name,
+.swagger-ui .parameters-col_name,
+.swagger-ui .response-col_links,
+.swagger-ui .responses-inner h4,
+.swagger-ui .responses-inner h5 {
+  color: var(--orca-foreground);
+}
+
+.swagger-ui table thead tr td,
+.swagger-ui table thead tr th {
+  color: var(--orca-muted-foreground);
+  border-bottom: 1px solid var(--orca-border);
+}
+
+.swagger-ui table tbody tr td {
+  border-bottom: 1px solid var(--orca-border);
+}
+
+.swagger-ui .model-example,
+.swagger-ui .highlight-code,
+.swagger-ui .microlight,
+.swagger-ui pre {
+  background: var(--orca-muted);
+  color: var(--orca-foreground);
+}
+
+/* Schemas section. */
+.swagger-ui section.models {
+  background: var(--orca-background);
+  border: 1px solid var(--orca-border);
+  border-radius: var(--orca-radius, 6px);
+}
+
+.swagger-ui section.models.is-open h4 {
+  border-bottom: 1px solid var(--orca-border);
+}
+
+.swagger-ui section.models h4,
+.swagger-ui .model-title,
+.swagger-ui .model,
+.swagger-ui .model-toggle,
+.swagger-ui section.models .model-container {
+  color: var(--orca-foreground);
+}
+
+.swagger-ui section.models .model-container {
+  background: var(--orca-card);
+}
+
+.swagger-ui .model-box,
+.swagger-ui .model-box-control:focus,
+.swagger-ui .models-control:focus {
+  background: transparent;
+}
+
+.swagger-ui .prop-type {
+  color: var(--orca-primary);
+}
+
+.swagger-ui .prop-format,
+.swagger-ui .property.primitive {
+  color: var(--orca-muted-foreground);
+}
+
+/* Authorize dialog. */
+.swagger-ui .dialog-ux .modal-ux,
+.swagger-ui .dialog-ux .modal-ux-header,
+.swagger-ui .dialog-ux .modal-ux-content {
+  background: var(--orca-popover);
+  color: var(--orca-popover-foreground);
+  border-color: var(--orca-border);
+}
+
+.swagger-ui .dialog-ux .modal-ux-header h3,
+.swagger-ui .dialog-ux .modal-ux-content h4,
+.swagger-ui .dialog-ux .modal-ux-content p,
+.swagger-ui .dialog-ux .modal-ux-content label {
+  color: var(--orca-popover-foreground);
+}
+
+.swagger-ui .dialog-ux input {
+  background: var(--orca-card);
+  color: var(--orca-foreground);
+  border-color: var(--orca-input);
+}
+
+.swagger-ui .dialog-ux .backdrop-ux {
+  background: rgb(0 0 0 / 60%);
+}

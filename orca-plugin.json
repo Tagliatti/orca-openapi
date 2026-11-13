@@ -1,0 +1,46 @@
+{
+  "manifestVersion": 2,
+  "id": "openapi-preview",
+  "name": "OpenAPI Preview",
+  "version": "0.1.0",
+  "description": "OpenAPI/Swagger preview beside the YAML: endpoints by tag, colour-coded methods and schemas.",
+  "screenshots": [
+    {
+      "path": "assets/screenshot-light.png",
+      "alt": "The OpenAPI Preview tab on the Swagger Petstore spec: version and OAS 3.0 badges, a servers picker with Authorize, and pet endpoints colour-coded by method.",
+      "caption": "Endpoints grouped by tag, colour-coded by method.",
+      "theme": "light"
+    },
+    {
+      "path": "assets/screenshot-dark.png",
+      "alt": "The OpenAPI Preview tab on the Swagger Petstore spec: version and OAS 3.0 badges, a servers picker with Authorize, and pet endpoints colour-coded by method.",
+      "caption": "Endpoints grouped by tag, colour-coded by method.",
+      "theme": "dark"
+    }
+  ],
+  "engines": {
+    "orca": ">=1.4.248"
+  },
+  "execution": "sandboxed-ui",
+  "pluginApi": 1,
+  "contributes": {
+    "customEditors": [
+      {
+        "id": "openapi-preview",
+        "title": "API",
+        "filenames": [
+          "openapi.yaml",
+          "openapi.yml",
+          "openapi.json",
+          "swagger.yaml",
+          "swagger.yml",
+          "swagger.json"
+        ],
+        "entry": "editor/index.html",
+        "priority": "default",
+        "contentKind": "text",
+        "frame": "isolated"
+      }
+    ]
+  }
+}
