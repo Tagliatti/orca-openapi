@@ -18,7 +18,7 @@ view, with **Source** on the next tab for the raw YAML.
 orca plugin install Tagliatti/orca-openapi
 ```
 
-Pin a version with `Tagliatti/orca-openapi@v0.1.0`. In the app, the same thing through
+Pin a version with `Tagliatti/orca-openapi@v0.1.1`. In the app, the same thing through
 Settings → Plugins → Install plugin.
 
 The plugin runs code, so Orca asks for approval first and shows exactly what it would grant: a
@@ -81,13 +81,16 @@ editor/theme.css        adapts Swagger UI to the --orca-* variables
 editor/vendor/          swagger-ui-bundle.js, swagger-ui.css, js-yaml.mjs (generated)
 scripts/vendor.mjs      downloads and copies the vendored files, with pinned versions
 sample/openapi.yaml     the Swagger Petstore spec, used for the screenshots
+assets/cover.png        the plugin page cover (16:10), shown at the top of the listing
+assets/icon.png         the square plugin icon
 assets/screenshot-*.png the plugin page screenshots, one per theme
 ```
 
-Regenerate them with `orca plugin shot . --editor ./sample/openapi.yaml`, once in each theme, then
-normalise both to 16:10. The manifest requires each to be at least 1280×800 and at most 1536 KB, and
-each `alt` to be at most 160 characters. The capture size follows Orca's editor pane rather than the
-`--width`/`--height` flags, so the normalising step is what keeps the pair identical.
+Regenerate the screenshots with `orca plugin shot . --editor ./sample/openapi.yaml`, once in each
+theme, then normalise both to 16:10. The manifest requires each to be at least 1280×800 and at most
+1536 KB, and each `alt` to be at most 160 characters. The capture size follows Orca's editor pane
+rather than the `--width`/`--height` flags, so the normalising step is what keeps the pair
+identical.
 
 The vendored versions are pinned in `scripts/vendor.mjs`; changing them there and running it again is
 how you update. Swagger UI is Apache-2.0 and js-yaml is MIT — both licences are in `editor/vendor/`.
