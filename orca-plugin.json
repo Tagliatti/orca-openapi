@@ -2,7 +2,7 @@
   "manifestVersion": 2,
   "id": "openapi-preview",
   "name": "OpenAPI Preview",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "OpenAPI/Swagger preview beside the YAML: endpoints by tag, colour-coded methods and schemas.",
   "license": "Apache-2.0",
   "author": {
@@ -10,6 +10,11 @@
     "url": "https://github.com/Tagliatti"
   },
   "repository": "https://github.com/Tagliatti/orca-openapi",
+  "icon": "assets/icon.png",
+  "cover": {
+    "path": "assets/cover.png",
+    "alt": "OpenAPI Preview: colour-coded GET, POST, PUT and DELETE endpoints beside the Swagger Petstore YAML."
+  },
   "screenshots": [
     {
       "path": "assets/screenshot-light.png",
