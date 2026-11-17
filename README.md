@@ -15,10 +15,10 @@ view, with **Source** on the next tab for the raw YAML.
 ## Install
 
 ```sh
-orca plugin install Tagliatti/orca-openapi
+orca plugin install tagliatti/orca-openapi
 ```
 
-Pin a version with `Tagliatti/orca-openapi@v0.1.1`. In the app, the same thing through
+Pin a version with `tagliatti/orca-openapi@v0.2.0`. In the app, the same thing through
 Settings → Plugins → Install plugin.
 
 The plugin runs code, so Orca asks for approval first and shows exactly what it would grant: a
@@ -26,16 +26,23 @@ sandboxed editor frame that reads every file it opens, and no capabilities.
 
 ## What it opens
 
-Known file names only, matching GitLab's defaults:
+The names GitLab uses, plus a suffix convention for everything else:
 
 ```
 openapi.yaml  openapi.yml  openapi.json
 swagger.yaml  swagger.yml  swagger.json
+
+<anything>.openapi.yaml  .openapi.yml  .openapi.json
+<anything>.swagger.yaml  .swagger.yml  .swagger.json
 ```
 
-Arbitrary `.yaml` files are left alone. Orca treats `.yaml` as a type it opens itself, and by
-default such files would land as a secondary tab — but registering by **file name** beats that
-rule, so these files open **directly in the API view**.
+So `petstore.openapi.yaml` and `api.swagger.json` open in the API view, whatever comes before the
+suffix. Arbitrary `.yaml` files are left alone.
+
+The manifest matches **exact names** or **dot-separated suffixes**, ignoring case — there is no glob.
+`.yaml`, `.yml` and `.json` are types Orca opens itself, and a plugin editor opens one of them by
+default only when the whole **file name** is listed: that is why the second form is a suffix
+(`test.openapi.yaml`) and not a prefix (`openapi-test.yaml`), which Orca cannot match at all.
 
 It is **read-only**: it reads the file and draws it, never writes back, so the tab never goes dirty.
 It re-renders by itself when the file changes from outside.
